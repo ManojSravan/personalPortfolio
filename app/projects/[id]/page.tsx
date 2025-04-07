@@ -15,9 +15,22 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
       <header>
         <h1 className="text-3xl font-bold">{project.title}</h1>
         <p className="text-lg text-muted-foreground mt-2">{project.description}</p>
+
+        {project.techStack && (
+          <div className="flex flex-wrap gap-2 mt-4">
+            {project.techStack.map((tech, index) => (
+              <span
+                key={index}
+                className="px-2 py-1 text-xs bg-muted text-foreground rounded-full border"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
       </header>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
         {project.link && (
           <Button asChild>
             <Link href={project.link} target="_blank" rel="noopener noreferrer">

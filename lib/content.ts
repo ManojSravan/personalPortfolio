@@ -14,6 +14,7 @@ export interface Project {
   link?: string;
   caseStudy?: string;
   featured?: boolean;
+  techStack?: string[];
 }
 
 export const posts: Post[] = [
@@ -120,7 +121,7 @@ I was onboarded as a Backend Developer, responsible for designing and implementi
     title: "🧠 Deep Dive: JavaScript's Global Execution Context",
     description: "Ever wondered how JS hoisting and the TDZ work? This one's for you.",
     date: "2025-04-07",
-    featured: false,
+    featured: true,
     content: `
 Have you ever wondered how JavaScript handles your code under the hood? The answer lies in the **Global Execution Context (GEC)** — the foundation where everything begins.
 
@@ -208,26 +209,31 @@ export const projects: Project[] = [
     title: "Affiliate Marketing E-commerce Platform",
     description: "Built an SEO-friendly affiliate-based e-commerce platform integrated with external product APIs and analytics dashboard.",
     link: "http://www.dealsmocktail.com",
+    techStack: ["Next.js", "TypeScript", "Jest"]
   },
   {
     id: "startup-portfolio",
     title: "Startup Portfolio Website",
     description: "Developed a sleek and fast-loading portfolio website for a tech startup to showcase products and services effectively.",
-    link: "https://www.qubicgen.com"
+    link: "https://www.qubicgen.com",
+    featured: true,
+    techStack: ["React", "TypeScript", "Prisma", "PostgreSQL"]
   },
   {
     id: "housing-assist",
-    title: "Abroad Housing Assistance Platform",
+    title: "Housing Assistance Platform",
     description: "Built a housing portal to help Indian students and professionals find verified accommodation abroad.",
     link: "https://www.melodymocktail.com",
-    featured: true
-
+    featured: true,
+    techStack: ["Node.js", "TypeScript", "Express", "MongoDB", "Kafka"]
   },
   {
     id: "edtech-lms",
     title: "Learning Management System (LMS)",
     description: "A custom LMS built from scratch for an EdTech platform focusing on scalability, course management, and real-time reporting.",
     caseStudy: "https://medium.com/@workwithmanojsravan/case-study-building-a-scalable-learning-management-system-lms-from-scratch-6e60ca8222a9",
-    featured: true
+    featured: false,
+    techStack: ["PostgreSQL", "Express", "React", "Node.js", "TypeScript", "Prisma", "AWS", "Kafka"]
   }
 ];
+

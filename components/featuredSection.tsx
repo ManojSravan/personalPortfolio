@@ -1,73 +1,59 @@
-import Link from "next/link";
-import {
-  MonitorSmartphone,
-  Server,
-  AppWindow,
-  UploadCloud,
-  BarChart3,
-  Boxes,
-} from "lucide-react";
+'use client';
 
-const featuredProjects = [
+import { Code, Server, ActivitySquare, Cloud } from 'lucide-react';
+
+const services = [
   {
-    id: 1,
-    title: "Modern & Mobile-Friendly Interfaces",
-    link: "/projects/responsive-design",
-    icon: MonitorSmartphone,
+    title: 'Frontend Development',
+    description:
+      'Building responsive and modern UIs using React, Next.js, and Tailwind CSS.',
+    icon: <Code className="w-5 h-5" />,
   },
   {
-    id: 2,
-    title: "Reliable Backend Systems",
-    link: "/projects/backend-architecture",
-    icon: Server,
+    title: 'Backend Development',
+    description:
+      'Creating scalable APIs using Node.js, Express, NestJS, PostgreSQL, and MongoDB.',
+    icon: <Server className="w-5 h-5" />,
   },
   {
-    id: 3,
-    title: "Apps for Web & Mobile",
-    link: "/projects/cross-platform",
-    icon: AppWindow,
+    title: 'API Testing & Integration',
+    description:
+      'Automated testing, API documentation, and seamless integration using Postman and Swagger.',
+    icon: <ActivitySquare className="w-5 h-5" />,
   },
   {
-    id: 4,
-    title: "Smooth Deployments & DevOps",
-    link: "/projects/devops",
-    icon: UploadCloud,
-  },
-  {
-    id: 5,
-    title: "Insightful Dashboards",
-    link: "/projects/admin-dashboards",
-    icon: BarChart3,
-  },
-  {
-    id: 6,
-    title: "Scalable Microservice Setup",
-    link: "/projects/microservices",
-    icon: Boxes,
+    title: 'DevOps & Deployment',
+    description:
+      'Dockerized deployments, server setups, CI/CD pipelines, and Memcached-based caching.',
+    icon: <Cloud className="w-5 h-5" />,
   },
 ];
 
-export default function FeaturedSection() {
+export default function ServiceSection() {
   return (
-    <div className="space-y-8 py-8">
+    <section className="space-y-4 mb-6"> {/* Adjusted bottom spacing */}
       <div>
-        <h1 className="text-2xl font-bold">What I offer</h1>
+        <h2 className="text-2xl font-semibold">Services I Offer</h2>
       </div>
-
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {featuredProjects.map(({ id, title, link, icon: Icon }) => (
-          <Link
-            key={id}
-            href={link}
-            className="p-6 bg-card rounded-2xl block hover:shadow-md transition duration-200 hover:bg-gray-100 dark:hover:bg-gray-900"
+      <div className="grid gap-3"> {/* Slightly reduced card spacing */}
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="p-4 rounded-lg bg-card dark:hover:bg-gray-900 cursor-pointer hover:bg-gray-100 transition-colors cursor-default"
           >
-            <div className="flex-col  ">
-               
-              <h2 className="font-medium text-md">{title}</h2>
+            <div className="flex items-start gap-4">
+              <div className="text-muted-foreground">{service.icon}</div>
+              <div>
+                <h3 className="font-medium">{service.title}</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {service.description}
+                </p>
+              </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
+

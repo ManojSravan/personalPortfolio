@@ -8,6 +8,8 @@ export function Navigation() {
   const pathname = usePathname();
 
   return (
+    <>
+    
     <nav className="flex gap-4">
       <Link 
         href="/" 
@@ -37,5 +39,6 @@ export function Navigation() {
         Projects
       </Link>
     </nav>
+    </>
   );
 }
